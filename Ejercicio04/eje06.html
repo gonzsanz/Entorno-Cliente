@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+
+<body>
+
+    <form>
+        <input type="text" id="texto">
+        <input type="button" value="Comprobar" onclick="escribir()">
+    </form>
+
+    <script>
+
+        function escribir() {
+            const palabra = document.getElementById('texto').value.split(" ").join('')
+            const array = palabra.split('')
+            const reverse_array = array.reverse();
+            const palabra_invertida = reverse_array.join("")
+
+            if (palabra.toLowerCase() === palabra_invertida.toLowerCase()) {
+
+                document.write('Es un palindromo <br>')
+            } else {
+                document.write('No un palindromo <br>')
+
+            }
+
+            document.write(palabra)
+            document.write('<br>' + palabra_invertida)
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

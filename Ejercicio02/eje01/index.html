@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+
+    <script>
+        let numero;
+        let media = 0;
+        let cont = Number();
+        while (numero != 0) {
+            numero = prompt("Introduzca numeros o 0 para terminar");
+
+            if (numero == null) {
+
+                break;
+            }
+            numero = parseInt(numero);
+            if (isNaN(numero)) {
+                alert("No es un numero");
+            } else {
+                media += numero;
+                cont++;
+            }
+            if (numero == 0) {
+                cont--;
+            }
+
+        }
+
+        media = media / cont;
+
+        alert(`La media de números es de ${media}`)
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+
+    <script>
+
+        const numeros = Array(10);
+        let num
+
+        for (let i = 0; i < 10000; i++) {
+
+            num = Math.floor(Math.random() * 10) + 1
+
+            if (numeros[num] == undefined) {
+                numeros[num] = 1
+            } else {
+                document.write(numeros[num])
+                numeros[num]++
+            }
+
+        }
+        document.write('<table><tr><b>Frecuencias</b></tr>')
+        for (let i = 1; i < numeros.length; i++) {
+            document.write('<tr><td>Número ' + i + '</td><td> => ' + numeros[i] + '</td>')
+        }
+        document.write("</table>")
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea id="escribir" cols="5" rows="10"></textarea>
+    <script>
+        let num = prompt("Introduce un número");
+        let triangulo = "";
+        for (let i = 0; i <= num; i++) {
+            for (let j = 0; j < i; j++) {
+                triangulo += "* ";
+            }
+            triangulo += "\n";
+        }
+
+        // redimensionar el textarea para que se ajuste al texto que contiene
+        document.getElementById("escribir").cols = num * 2;
+        document.getElementById("escribir").rows = num;
+
+        document.getElementById("escribir").value = triangulo;
+
+
+
+    </script>
+</body>
+
+</html>
