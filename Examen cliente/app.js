@@ -15,9 +15,9 @@ function cancel() {
 
 // Comprobar usuario
 function checkUser() {
+
     const user = document.getElementById("cjausuario").value
     const no_num = "!#$%&/()=?¡.,+~@|<>"
-
 
     for (let letra of user) {
         // Comprobar que no contiene mayusculas
