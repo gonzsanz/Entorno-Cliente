@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguro</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><label for="nombre">Nombre</label></td>
+            <td><input type="text" name="nombre"></td>
+        </tr>
+        <tr>
+            <td><label for="apellido">Apellidos</label></td>
+            <td><input type="text" name="apellido"></td>
+        </tr>
+        <tr>
+            <td><label for="pago">Forma de pago</label></td>
+            <td><input type="radio" name="pago" value="Mensual">Mensual</td>
+            <td><input type="radio" name="pago" value="Trimestral">Trimestral</td>
+            <td><input type="radio" name="pago" value="Anual">Anual</td>
+        </tr>
+        <tr>
+            <td><label for="accesorios">Accesorios</label></td>
+            <td><input type="checkbox" name="todo">Todo riesgo</td>
+            <td><input type="checkbox" name="enchufable">Enchufable</td>
+            <td><input type="checkbox" name="llantas">Llantas de aleación</td>
+        </tr>
+        <tr>
+            <td><input type="button" value="CALCULAR"></td>
+            <td><input type="button" value="Ver selecciones" onclick="verSeleccion()"></td>
+        </tr>
+        <tr>
+            <td><label for="">TOTAL: </label><input type="text" value="" style="width: 50px;"></td>
+            <td>Euros</td>
+        </tr>
+    </table>
+    <script>
+        let periodopago = document.getElementsByName("pago")
+        let texto = ""
+
+        function verSeleccion() {
+            periodopago.forEach(pago => {
+                if (pago.checked) {
+                    alert("Forma de pago seleccionada: " + pago.value)
+                }
+            })
+            // periodopago.forEach(pago => pago.checked ? alert("Forma de pago seleccionada: " + pago.value)): pago.value;
+
+        }
+    </script>
+</body>
+
+</html>

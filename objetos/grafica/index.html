@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica</title>
+</head>
+
+<body>
+    <form>
+        <label for="marca">Marca:<input type="text" id="marca"></label><br>
+        <label for="modelo">Modelo:<input type="text" id="modelo"></label><br>
+        <label for="memoria">Memoria RAM:<input type="text" id="memoria"></label><br>
+        <label for="micro">Microprocesador:<input type="text" id="micro"></label><br>
+        <label for="grafica">Gráfica:<input type="text" id="grafica"></label><br>
+        <label for="portatil">Portátil: SI<input type="radio" name="portatil" value="si"></label>NO<input type="radio"
+            name="portatil" value="no"></label><br>
+        <input type="button" value="Añadir" onclick="accion(this.value)">
+        <input type="button" value="Consultar" onclick="accion(this.value)">
+        <input type="button" value="Eliminar" onclick="accion(this.value)">
+        <input type="reset" value="Borrar campos" onclick="accion(this.value)"><br>
+        <textarea id="area" name="area" cols="30" rows="15" onclick="accion(this.value)"></textarea>
+    </form>
+    <h1>IMAGEN TARJETA GRÁFICA</h1>
+
+
+    <script>
+        let ordenadores = []
+
+        class Tarjeta {
+
+            constructor(marca, modelo, memoria, microprocesador, grafica, portatil) {
+                this.marca = marca
+                this.modelo = modelo
+                this.memoria = memoria
+                this.microprocesador = microprocesador
+                this.grafica = grafica
+                this.portatil = portatil
+
+                this.toString =
+                    "Marca: " + marca +
+                    "\nModelo: " + modelo +
+                    "\nMemoria: " + memoria +
+                    "\nMicroprocesador: " + microprocesador +
+                    "\nGráfica: " + grafica +
+                    "\nPortatil: " + portatil +
+                    "\n-------------\n"
+
+
+            }
+
+
+        }
+
+        function accion(tarea) {
+            switch (tarea) {
+                case "Añadir":
+                    añadir()
+                    break;
+                case "Consultar":
+                    consultar()
+                    break;
+                case "Eliminar":
+                    eliminar()
+                    console.log(ordenadores);
+                    break;
+                case "Borrar campos":
+                    break;
+            }
+
+            function añadir() {
+                let marca = document.getElementById("marca").value
+                let modelo = document.getElementById("modelo").value
+                let memoria = document.getElementById("memoria").value
+                let microprocesador = document.getElementById("micro").value
+                let grafica = document.getElementById("grafica").value
+                let portatil = document.getElementsByName("portatil")
+                portatil.forEach(portatil => {
+                    if (portatil.checked) {
+                        portatil = portatil.value
+                    }
+                })
+
+                console.log("hola");
+                let ordenador = new Tarjeta(marca, modelo, memoria, microprocesador, grafica, portatil)
+                ordenadores.push(ordenador)
+            }
+
+            function consultar() {
+                let modelo = document.getElementById("modelo").value
+                ordenadores.forEach(ordenador => {
+                    if (ordenador.modelo == modelo) {
+                        document.getElementById("area").value = ordenador.toString
+                    }
+                })
+
+            }
+            function eliminar() {
+                let modelo = document.getElementById("modelo").value
+                ordenadores.forEach(ordenador => {
+                    if (ordenador.modelo == modelo) {
+                        ordenadores.shift();
+                    }
+                })
+            }
+        }
+
+    </script>
+</body>
+
+</html>

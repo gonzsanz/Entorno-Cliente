@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionario</title>
+</head>
+
+
+<body onload="completar()">
+    <form>
+        Color: <input type="text" name="color" id="color"><br><br>
+        Ruedas: <input type="text" name="ruedas" id="ruedas"><br><br>
+        <h3>Motor:</h3> <br>
+        Cilindros: <input type="text" name="cilindros" id="cilindros"><br><br>
+        Tamaño: <input type="text" name="tamaño" id="tamaño"><br><br>
+    </form>
+    <script>
+        function completar() {
+
+            let Auto = {
+                color: "rojo",
+                ruedas: 4,
+                motor: {
+                    cilindros: 4,
+                    tamaño: 2.2
+                }
+            }
+
+            document.getElementsByTagName("input")[0].value = Auto.color;
+            document.getElementsByTagName("input")[1].value = Auto.ruedas;
+            document.getElementsByTagName("input")[2].value = Auto.motor.cilindros;
+            document.getElementsByTagName("input")[3].value = Auto.motor.tamaño;
+        }
+    </script>
+</body>
+
+</html>

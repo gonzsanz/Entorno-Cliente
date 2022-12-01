@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>CARRERA</h1>
+    <form action="">
+        Por favor indique su edad: <input type="date" id="fecha"><br><br>
+        <input type="button" value="Guardar" onclick="accion(this.value)">
+        <input type="button" value="Visualizar" onclick="accion(this.value)"><br>
+        <textarea name="area" id="area" cols="30" rows="10"></textarea>
+    </form>
+
+    <script>
+
+        let edades = 0
+        function accion(tarea) {
+
+            switch (tarea) {
+                case "Guardar":
+                    guardar()
+                    break
+                case "Visualizar":
+                    visualizar()
+                    break
+            }
+        }
+
+        function guardar() {
+            edades = calcularedad()
+        }
+
+        function calcularedad() {
+            let fecna = new Date(document.getElementById("fecha").value)
+
+            let hoy = new Date()
+            let edad = hoy.getFullYear() - fecna.getFullYear()
+            let meses = hoy.getMonth() - fecna.getMonth()
+            if (meses < 0 || (meses === 0 && hoy.getDate() < fecna.getDate())) {
+                edad--
+            }
+            return edad
+        }
+
+        function visualizar() {
+            if (edades >= 18) {
+                document.getElementById("area").value = "Puede participar en la carrera"
+            } else {
+                document.getElementById("area").value = "No puede participar en la carrera"
+            }
+        }
+    </script>
+</body>
+
+</html>
