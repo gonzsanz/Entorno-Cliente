@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Controlando elementos y Programando</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<center>
+		<h2>GENERACION DE FIGURAS GEOMETRICAS</h2>
+		<h3>TRIANGULO</h3>
+
+		<form name="configuracion">
+			<div>
+				<h3>CONFIGURACION</h3>
+				<h4>Opciones del modelo:</h4><br />
+				<table>
+					<tr>
+						<th>Filas</th>
+						<th>Caracter</th>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="25" />25</td>
+						<td><input type="radio" name="caracter" value="*" onclick="generarPoligono()" />Asterisco</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="15" />15</td>
+						<td><input type="radio" name="caracter" value="$" onclick="generarPoligono()" />Dolar</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="10" />10</td>
+						<td><input type="radio" name="caracter" value="%" onclick="generarPoligono()" />Porcentaje</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="5" />5</td>
+						<td><input type="radio" name="caracter" value="K" onclick="generarPoligono()" />Letra K<br />
+						</td>
+					</tr>
+				</table><br><br>
+
+
+				<div name="datos">
+					<h4> VISUALIZACION DE LA FIGURA: </h4><textarea name='visualizador' cols='13' rows='6'></textarea>
+				</div>
+				<p></p>
+			</div>
+		</form>
+	</center>
+	<script>
+
+		function Poligono(rangofilas, letraprint) {
+			this.filas = rangofilas
+			this.columnas = rangofilas * 2
+			this.letra = letraprint
+			this.datospoligono = function () {
+
+				let poligono = ""
+				for (let i = 0; i < this.filas; i++) {
+					for (let j = 0; j < this.columnas; j++) {
+						poligono += this.letra
+					}
+					poligono += "\n"
+				}
+				return poligono
+			}
+		}
+
+		function generarPoligono() {
+			let filas = document.getElementsByName("Fila")
+			let filaElegida
+			for (fila of filas) {
+				if (fila.checked) {
+					filaElegida = fila.value
+				}
+			}
+			let caracter = document.getElementsByName("caracter")
+			let caracterElegido
+			for (letra of caracter) {
+				if (letra.checked) {
+					caracterElegido = letra.value
+				}
+			}
+
+			let miPoligono = new Poligono(filaElegida, caracterElegido)
+
+			document.getElementsByName("visualizador")[0].value = miPoligono.datospoligono()
+			document.getElementsByName("visualizador")[0].rows = miPoligono.filas
+			document.getElementsByName("visualizador")[0].cols = miPoligono.columnas
+
+			document.getElementsByTagName("p")[0].innerHTML = "El poligono representado está formado por " + miPoligono.filas + " filas y " + miPoligono.columnas + " columnas Y se ha utilizado el carácter " + miPoligono.letra + " para representarlo"
+		}
+
+	</script>
+</body>
+
+</html>
