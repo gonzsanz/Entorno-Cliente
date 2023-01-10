@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <center>
+        <input type="text" id="pantalla">
+        <table>
+            <tr>
+                <td><input type="button" value="7" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="8" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="9" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="/" onclick="addOperator(this.value)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="5" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="6" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="*" onclick="addOperator(this.value)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="2" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="3" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="-" onclick="addOperator(this.value)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onclick="addNumber(this.value)"></td>
+                <td><input type="button" value="=" onclick="calcular()"></td>
+                <td><input type="button" value="C" onclick="clear()"></td>
+                <td><input type="button" value="+" onclick="addOperator(this.value)"></td>
+            </tr>
+        </table>
+    </center>
+    <script>
+        const pantalla = document.getElementById("pantalla");
+        const result = 0;
+        const operator = "";
+
+        function addNumber(number) {
+            pantalla.value += number;
+        }
+
+        function addOperator(operator) {
+            pantalla.value += operator;
+        }
+
+        function calcular() {
+            pantalla.value = eval(pantalla.value)
+        }
+
+        function clear(){
+            
+        }
+    </script>
+</body>
+
+</html>
